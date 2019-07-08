@@ -13,6 +13,21 @@ const winningRows = [
 // array of squares of the board
 const board = () => Array.from(document.getElementsByClassName('square'));
 
+//identifying each square's id, excluding sq
+const squareIdToNum = (squareEl) => Number.parseInt(squareEl.id.replace('sq', ''));
+
+//identifying empty spaces for the participants
+const emptySpace = () => board().filter(_squareEl => _squareEl.innerText === '');
+
+//check if all 3 spaces have the same inner text x's or o's
+const sameInnerText = (arr) => arr.every(_squareEl => _square.innerText === arr[0].innerText && _square.innerText !== '');
+
+
+const takeTurns = (index, letter) => board()[index].innerText = letter;
+
+
+
+
 //click function
 const clickFunc = (event) => console.log(event.target)
 
@@ -21,4 +36,6 @@ const enableListener = () => board().forEach(_squareEl => _squareEl.addEventList
 
 // remove event listener
 const disableListener = () => board().forEach(_squareEl => _squareEl.removeEventListener('click', clickFunc));
+
+enableListener();
 
