@@ -1,0 +1,45 @@
+h1 {
+    color: black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+}
+
+#container {
+    width: 600px;
+    height: 600px;
+    margin: auto;
+    border: 1px solid black;
+    background-image: url('http://triggspot.com/wp-content/uploads/2018/10/light-wood-light-wood-laminate-capitol-pine-x-x-light-wood-background-hd.jpg');
+}
+
+.main_square {
+    width: 65%;
+    margin: auto;
+    height: 65%; 
+}
+
+.square {
+    width: 32%;
+    height: 32%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 100px;
+    
+}
+
+#sq0, #sq1, #sq2, #sq3, #sq4, #sq5 {
+    border-bottom: 5px solid black;
+}
+
+#sq1, #sq2, #sq4, #sq5, #sq7, #sq8 {
+    border-left: 5px solid black;
+}
+
+.winner {
+    color: red;
+    text-decoration: line-through;
+}
