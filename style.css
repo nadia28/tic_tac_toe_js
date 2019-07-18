@@ -43,3 +43,17 @@ h1 {
     color: red;
     text-decoration: line-through;
 }
+
+
+/*responsive design*/
+
+@media screen and (max-width: 620px) {
+    #container {
+        width: 400px;
+        height: 400px;        
+    }
+    .square {
+        margin: auto;
+        padding-bottom: 15px;
+    }
+}
