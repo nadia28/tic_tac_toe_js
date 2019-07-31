@@ -12,17 +12,17 @@ const winningRows = [
 
 //helper functions
 
-// array of squares of the board
+// selecting array of squares of the board
 const board = () => Array.from(document.getElementsByClassName('square'));
 
-//identifying each square's id, excluding sq
-const squareIdToNum = (squareEl) => Number.parseInt(squareEl.id.replace('sq', ''));
+//identifying each square's id, excluding sq, to get a number without letters
+const squareIdToNum = squareEl => Number.parseInt(squareEl.id.replace('sq', ''));
 
 //identifying empty spaces for the participants
 const emptySpace = () => board().filter(squareEl => squareEl.innerText === '');
 
 //check if all 3 spaces have the same inner text x's or o's
-const sameInnerText = (arr) => arr.every(squareEl => squareEl.innerText === arr[0].innerText && squareEl.innerText !== '');
+const sameInnerText = arr => arr.every(squareEl => squareEl.innerText === arr[0].innerText && squareEl.innerText !== '');
 
 // taking turns 
 const takeTurns = (index, letter) => board()[index].innerText = letter;
@@ -35,7 +35,7 @@ const nextPlayerOpt = () => squareIdToNum(emptySpace()[Math.floor(Math.random() 
 
 
 // Finish the game
-const endGame = (winningSequence) => { 
+const endGame = winningSequence => { 
     winningSequence.forEach(squareEl => squareEl.classList.add('winner'));
     disableListener(); 
 }
@@ -57,8 +57,7 @@ const checkWin = () => {
 };
 
 
-
-//other player's turn 
+//other player's turn, waiting 1 sec before being able to click
 const nextPlayerTurn = () => {
     disableListener();
     setTimeout(() => {
@@ -69,7 +68,7 @@ const nextPlayerTurn = () => {
 
 
 //click function
-const clickFunc = (event) => {
+const clickFunc = event => {
     takeTurns(squareIdToNum(event.target), 'X');
     if(!checkWin())  nextPlayerTurn();
 };
